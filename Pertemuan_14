@@ -1,1 +1,25 @@
+GRANT SELECT, INSERT ON Employees TO User1;
 
+REVOKE INSERT ON Employees FROM User1;
+
+CREATE VIEW EmployeeBasicInfo AS
+
+SELECT Name, Department
+
+FROM Employees;
+
+GRANT SELECT ON EmployeeBasicInfo TO User2;
+
+CREATE TABLE SecureData (
+
+ID INT,
+
+Data VARCHAR(100),
+
+SecurityLabel VARCHAR(20)
+
+);
+
+INSERT INTO SecureData (ID, Data, SecurityLabel) VALUES (1, 'Confidential Data', 'TopSecret');
+
+SELECT * FROM Users WHERE Username = '' OR 1=1 -- AND Password = '';
